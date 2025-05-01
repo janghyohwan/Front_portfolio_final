@@ -1,9 +1,14 @@
 import DeleteButton from "./DeleteButton/DeleteButton";
 import Link from "next/link";
 import { guestbookData } from "@/data/guestbookData";
-import { Props } from "@/types/GuestbookType";
 
-export default function Page({ params }: Props) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default function Page({ params }: PageProps) {
   const { id } = params;
   const guestbook = guestbookData.find((item) => item.id === parseInt(id));
 
