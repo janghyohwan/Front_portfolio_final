@@ -3,13 +3,13 @@ import Link from "next/link";
 import { guestbookData } from "@/data/guestbookData";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export default function Page({ params }: PageProps) {
-  const { id } = params;
+export default async function Page({ params }: PageProps) {
+  const { id } = await params;
   const guestbook = guestbookData.find((item) => item.id === parseInt(id));
 
   if (!guestbook) {
