@@ -4,6 +4,7 @@ import { defaultCards } from "@/data/ProjectData";
 import { ProjectProps } from "@/types/ProjectType";
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const ProjectSection: React.FC<ProjectProps> = ({
   cards = defaultCards,
@@ -11,6 +12,7 @@ const ProjectSection: React.FC<ProjectProps> = ({
   title = "Project",
 }) => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // 모든 고유 태그 추출 및 React 태그를 두 번째 줄로 이동
   const allTags = useMemo(() => {
@@ -39,10 +41,12 @@ const ProjectSection: React.FC<ProjectProps> = ({
     <section id={sectionId} className="py-16 bg-black scroll-mt-16">
       <div className="max-w-[1800px] mx-auto px-4 mb-8">
         <div className="flex flex-col items-center">
-          <h2 className="text-[70px] font-bold uppercase text-center mb-8">
+          <h2 className="text-4xl md:text-5xl lg:text-[70px] font-bold uppercase text-center mb-8">
             {title}
           </h2>
-          <div className="w-full flex flex-col gap-4">
+
+          {/* Desktop Tags */}
+          <div className="hidden lg:flex flex-col gap-4 w-full">
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedTag(null)}
@@ -78,11 +82,55 @@ const ProjectSection: React.FC<ProjectProps> = ({
               ))}
             </div>
           </div>
+
+          {/* Mobile Tags Menu */}
+          <div className="lg:hidden flex justify-end w-full">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white text-2xl"
+            >
+              {isMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile Tags Dropdown */}
+      {isMenuOpen && (
+        <div className="lg:hidden fixed top-0 right-0 w-64 h-full bg-black p-4 z-50 overflow-y-auto">
+          <div className="flex flex-col gap-4">
+            <button
+              onClick={() => {
+                setSelectedTag(null);
+                setIsMenuOpen(false);
+              }}
+              className={`px-4 py-2 bg-gray-200 text-gray-800 rounded ${
+                selectedTag === null ? "bg-red-600 text-white" : ""
+              }`}
+            >
+              #all
+            </button>
+            {[...firstRowTags, ...secondRowTags].map((tag) => (
+              <button
+                key={tag}
+                onClick={() => {
+                  setSelectedTag(tag);
+                  setIsMenuOpen(false);
+                }}
+                className={`px-4 py-2 bg-gray-200 text-gray-800 rounded ${
+                  selectedTag === tag ? "bg-red-600 text-white" : ""
+                }`}
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Projects Grid */}
       <div className="max-w-[1800px] mx-auto px-4">
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {filteredCards.map((card, idx) => (
             <div
               key={idx}
@@ -99,7 +147,7 @@ const ProjectSection: React.FC<ProjectProps> = ({
                     alt={card.title}
                     width={600}
                     height={300}
-                    className="w-full h-[300px] object-cover"
+                    className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
                   />
                 </a>
               ) : (
@@ -108,12 +156,14 @@ const ProjectSection: React.FC<ProjectProps> = ({
                   alt={card.title}
                   width={600}
                   height={300}
-                  className="w-full h-[300px] object-cover"
+                  className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
                 />
               )}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
-                <p className="text-sm mb-4">{card.description}</p>
+              <div className="p-4 md:p-6">
+                <h3 className="text-xl md:text-2xl font-bold mb-2">
+                  {card.title}
+                </h3>
+                <p className="text-xs md:text-sm mb-4">{card.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {card.tags.map((tag) => (
                     <span
@@ -131,7 +181,7 @@ const ProjectSection: React.FC<ProjectProps> = ({
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+                      className="px-3 md:px-4 py-1 md:py-2 bg-red-600 text-white rounded hover:bg-red-700 transition text-sm md:text-base"
                     >
                       {link.label}
                     </a>
