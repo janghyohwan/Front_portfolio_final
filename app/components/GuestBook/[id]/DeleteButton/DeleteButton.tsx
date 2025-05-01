@@ -10,7 +10,7 @@ function DeleteButton() {
       try {
         router.push("/components/GuestBook");
         alert("방명록이 성공적으로 삭제되었습니다.");
-      } catch (error) {
+      } catch {
         alert("삭제에 실패했습니다.");
       }
     }
