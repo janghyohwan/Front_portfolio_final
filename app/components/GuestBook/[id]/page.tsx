@@ -1,9 +1,9 @@
 import DeleteButton from "./DeleteButton/DeleteButton";
 import Link from "next/link";
 import { guestbookData } from "@/data/guestbookData";
-import { Props } from "@/types/Guestbook";
+import { Props } from "@/types/GuestbookType";
 
-export default async function Page({ params }: Props) {
+export default function Page({ params }: Props) {
   const { id } = params;
   const guestbook = guestbookData.find((item) => item.id === parseInt(id));
 

@@ -1,4 +1,4 @@
-import { Guestbook } from "@/types/Guestbook";
+import { Guestbook } from "@/types/GuestbookType";
 
 export const guestbookData: Guestbook[] = [
   {

@@ -1,4 +1,4 @@
-import { GuestbookCardProps } from "@/types/Guestbook";
+import { GuestbookCardProps } from "@/types/GuestbookType";
 import Link from "next/link";
 
 export default function GuestbookCard({ guestbook }: GuestbookCardProps) {
