@@ -15,12 +15,13 @@ export const metadata: Metadata = {
     description: "블로그와 포트폴리오를 함께 관리하는 웹사이트입니다.",
     type: "website",
     locale: "ko_KR",
+    images: ["/Image/metaData.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "HYO_HWAN 블로그 & 포트폴리오",
     description: "블로그와 포트폴리오를 함께 관리하는 웹사이트입니다.",
-    images: ["/metaData.png"],
+    images: ["/Image/metaData.png"],
   },
 };
 
