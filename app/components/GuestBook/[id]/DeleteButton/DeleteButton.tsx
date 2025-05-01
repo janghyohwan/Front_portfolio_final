@@ -2,13 +2,15 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-function DeleteButton({ id }: { id: string }) {
+function DeleteButton() {
   const router = useRouter();
   const handleDelete = async () => {
-    if (confirm("정말로 이 방명록을 삭제하시겠습니까?")) {
+    const confirmDelete = window.confirm("이 방명록을 삭제하시겠습니까?");
+    if (confirmDelete) {
       try {
         router.push("/components/GuestBook");
-      } catch {
+        alert("방명록이 성공적으로 삭제되었습니다.");
+      } catch (error) {
         alert("삭제에 실패했습니다.");
       }
     }

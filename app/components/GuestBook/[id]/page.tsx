@@ -41,7 +41,7 @@ export default async function Page({ params }: Props) {
             </div>
 
             <div className="flex justify-end">
-              <DeleteButton id={id} />
+              <DeleteButton />
             </div>
           </div>
         </div>
