@@ -41,11 +41,9 @@ const ProjectSection: React.FC<ProjectProps> = ({
     <section id={sectionId} className="py-16 bg-black scroll-mt-16">
       <div className="max-w-[1800px] mx-auto px-4 mb-8">
         <div className="flex flex-col items-center">
-          <h2 className="text-4xl md:text-5xl lg:text-[70px] font-bold uppercase text-center mb-8">
+          <h2 className="text-4xl md:text-5xl lg:text-[70px] font-bold uppercase text-center mb-8 bg-gradient-to-br from-purple-500 to-indigo-600 bg-clip-text text-transparent">
             {title}
           </h2>
-
-          {/* Desktop Tags */}
           <div className="hidden lg:flex flex-col gap-4 w-full">
             <div className="flex flex-wrap gap-2">
               <button
@@ -83,7 +81,6 @@ const ProjectSection: React.FC<ProjectProps> = ({
             </div>
           </div>
 
-          {/* Mobile Tags Menu */}
           <div className="lg:hidden flex justify-end w-full">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -94,8 +91,6 @@ const ProjectSection: React.FC<ProjectProps> = ({
           </div>
         </div>
       </div>
-
-      {/* Mobile Tags Dropdown */}
       {isMenuOpen && (
         <div className="lg:hidden fixed top-0 right-0 w-64 h-full bg-black p-4 z-50 overflow-y-auto">
           <div className="flex flex-col gap-4">
@@ -128,7 +123,6 @@ const ProjectSection: React.FC<ProjectProps> = ({
         </div>
       )}
 
-      {/* Projects Grid */}
       <div className="max-w-[1800px] mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {filteredCards.map((card, idx) => (
