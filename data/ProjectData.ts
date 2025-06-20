@@ -2,6 +2,31 @@ import { CardProps } from "@/types/ProjectType";
 
 export const defaultCards: CardProps[] = [
   {
+    imageSrc: "/Image/whiteclinic.jpeg",
+    imageLink: "https://final-white-clinic.vercel.app/",
+    title: "WhiteClinic",
+    description:
+      "Next.js, React Native, TypeScript, NestJS, AWS, Docker 를 사용한 안드로이드 어플리케이션 및 관리자 웹 팀 프로젝트로 기사 관리, 예약, 수정, 매출현황 기능 구현",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "React Native",
+      "NestJS",
+      "AWS",
+      "Docker",
+      "Expo",
+      "GitHub",
+      "Vercel",
+    ],
+    links: [
+      { label: "GO SITE", url: "https://final-white-clinic.vercel.app/" },
+      {
+        label: "github",
+        url: "https://github.com/jiheon0928/final_white_clinic",
+      },
+    ],
+  },
+  {
     imageSrc: "/Image/redbutton.jpg",
     imageLink: "https://korit-red-button-63s7.vercel.app/",
     title: "RedButton",
@@ -30,7 +55,7 @@ export const defaultCards: CardProps[] = [
     title: "TodoList",
     description:
       "간단하고 직관적인 투두 리스트 웹 사이트 입니다. 할 일 추가, 완료, 삭제 기능을 구현 개인 프로젝트",
-    tags: ["Next.js", "React", "TypeScript", "CSS"],
+    tags: ["Next.js", "React", "TypeScript", "CSS", "GitHub", "Vercel"],
     links: [
       { label: "GO SITE", url: "https://blog-todo-list.vercel.app" },
       { label: "github", url: "https://github.com/janghyohwan/blog_TodoList" },
