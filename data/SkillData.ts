@@ -22,6 +22,14 @@ export const cardData: CardData[] = [
     desc: "사용자 인터페이스 구축을 위한 JavaScript 라이브러리입니다.",
   },
   {
+    title: "React Native",
+    desc: "React를 사용하여 모바일 앱을 개발하기 위한 프레임워크입니다.",
+  },
+  {
+    title: "Next.js",
+    desc: "React 기반의 서버 사이드 렌더링 프레임워크입니다.",
+  },
+  {
     title: "NestJS",
     desc: "효율적이고 확장 가능한 Node.js 서버 애플리케이션 프레임워크입니다.",
   },
